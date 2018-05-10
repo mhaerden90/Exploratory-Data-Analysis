@@ -10,11 +10,6 @@ replace(data, data=="?", NA)
 subset <- c("1/2/2007", "2/2/2007")
 data <- data[data$Date %in% subset,]
 
-#transform data and time values
-data$Date <- as.Date(data$Date, format="%d/%m/%Y")
-data$Time <- format(strptime(data$Time, format="%H:%M:%S"), "%H:%M:%S")
-data$datetime <- as.POSIXct(paste(data$Date, data$Time), format="%Y-%m-%d %H:%M:%S")
-
 #Set to English
 Sys.setlocale("LC_TIME", "C")
 
